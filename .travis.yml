@@ -1,0 +1,17 @@
+sudo: required
+language: ruby
+rvm:
+  - 2.4.2
+
+services:
+  - docker
+
+# Skip the installation steps
+install: true
+
+script: docker run nownabe/gem_tester:$TEST_PLATFORM
+
+env:
+  matrix:
+    - TEST_PLATFORM=debian-stretch
+    - TEST_PLATFORM=centos-7
